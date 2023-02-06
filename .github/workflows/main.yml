@@ -16,8 +16,9 @@ jobs:
           password: ${{ secrets.ACTION_TOKEN }}
       - name: Convert variable to lowercase
         run: |
-          repository_owner_lowercase=${{ github.repository_owner }}
-          echo "$repository_owner_lowercase" | tr '[:upper:]' '[:lower:]'
+          repository_owner=${{ github.repository_owner }}
+          repository_owner_lowercase=$(echo "$repository_owner" | tr '[:upper:]' '[:lower:]')
+          echo "$repository_owner_lowercase"
         
         
 #       - name: Build WCG Docker image
