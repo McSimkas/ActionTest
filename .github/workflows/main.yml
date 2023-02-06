@@ -15,7 +15,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.ACTION_TOKEN }}
       - name: Convert variable to lowercase
-        run: repository_owner_lowercase=${{ github.repository_owner }}
+        run: |
+          repository_owner_lowercase=${{ github.repository_owner }}
+          echo "${repository_owner_lowercase,,}"
       - run: echo "${repository_owner_lowercase}"
 #       - name: Build WCG Docker image
 #         run: docker build -t ghcr.io/${repository_owner_lowercase}/wcg:${{ github.sha }} -t ghcr.io/${repository_owner_lowercase}/wcg:latest -f Dockerfile.multi .
