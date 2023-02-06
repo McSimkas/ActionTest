@@ -17,8 +17,7 @@ jobs:
       - name: Convert variable to lowercase
         run: |
           repository_owner_lowercase=${{ github.repository_owner }}
-          tr '[:upper:]' '[:lower:]' < ${repository_owner_lowercase} > ${repository_owner_lowercase}
-          echo "${repository_owner_lowercase}"
+          echo "$repository_owner_lowercase" | tr '[:upper:]' '[:lower:]'
         
         
 #       - name: Build WCG Docker image
