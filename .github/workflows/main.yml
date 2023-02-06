@@ -17,7 +17,7 @@ jobs:
       - name: Convert variable to lowercase
         run: repository_owner_lowercase=${{ github.repository_owner }}
       - name: Build WCG Docker image
-        run: docker build -t ghcr.io/${repository_owner_lowercase}/wcg:${{ github.sha }} -t ghcr.io/${repository_owner_lowercase}/wcg:latest -f ./09-docker/Dockerfile.multi .
+        run: docker build -t ghcr.io/${repository_owner_lowercase}/wcg:${{ github.sha }} -t ghcr.io/${repository_owner_lowercase}/wcg:latest -f Dockerfile.multi .
       - name: Publish WCG Docker image
         run: |
           docker push ghcr.io/${repository_owner_lowercase}/wcg:${{ github.sha }}
